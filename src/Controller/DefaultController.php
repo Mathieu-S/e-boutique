@@ -2,10 +2,12 @@
 
 namespace Controller;
 
+use Model\Article;
 
 class DefaultController {
 
     public static function home() {
-        return "testy";
+        $articles = Article::getAllArticles();
+        return $articles;
     }
 }
