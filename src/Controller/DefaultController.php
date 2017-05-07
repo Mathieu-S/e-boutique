@@ -2,12 +2,20 @@
 
 namespace Controller;
 
-use Model\Article;
+class DefaultController extends Controller {
 
-class DefaultController {
+    public function home() {
+        if(!empty($_POST))
+        {
 
-    public static function home() {
-        $articles = Article::getAllArticles();
-        return $articles;
+        }
+        $this->set("name", "spg");
+        $this->set("test", ['name' => "Mathieu"]);
+        //$this->set("articles", \Model\Article::getAllArticles());
+        $this->view("home");
+    }
+    public  function article($id, $slug) {
+        var_dump($id, $slug);
+
     }
 }
