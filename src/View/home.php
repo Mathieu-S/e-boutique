@@ -2,22 +2,26 @@
 include('templates/header.php');
 ?>
 
-
 <h1>hello {name}</h1>
+
 <ul>
-    <?php foreach ($articles as $article ) {?>
-    <li><?php echo $article ?> </li>
-    <?php }
+<?php //foreach ($articles as $article ) {?>
+    <?php foreach ($articles as $article ) {
+        echo "<li><a href='".$router->url('Panier#addArticle',['id'=>$article->idArticle])."'>$article->nomArticle</a></li>";
+    }
 
-    echo "<a href='".$router->url('article',['id' => "test", 'slug' => "tests"])."'>dsqdqsdsqd</a>";
+
+
+
+
+
+
+
+
+    echo "<a href='".$router->url('Default#article',['id' => "test", 'slug' => "tests"])."'>dsqdqsdsqd</a>";
     ?>
-    {test.name}
-
 </ul>
 
 <?php
-//foreach (DefaultController::home() as $article) {
-//    echo $article['nom'];
-//}
 
 include('templates/footer.php');

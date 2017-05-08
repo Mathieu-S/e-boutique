@@ -57,5 +57,13 @@ class Router
         }
         return $this->namedRoutes[$name]->getUrl($params);
     }
+    public function redirect($name, $params = [])
+    {
+        if (!isset($this->namedRoutes[$name])) {
+            throw new \Exception('No route matches this name');
+        }
+        header("Location:".$this->namedRoutes[$name]->getUrl($params));
+        die();
+    }
 
 }

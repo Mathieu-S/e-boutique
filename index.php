@@ -15,8 +15,19 @@ $router->get("/",'Default#home');
 $router->post("/",'Default#home');
 $router->get("/login",'Login#login');
 $router->post("/login",'Login#login');
-$router->get("/product/:id-:slug",'Default#article', 'article')
+$router->get("/logout",'Login#logout');
+
+$router->get("/register",'Login#register');
+$router->post("/register",'Login#register');
+
+$router->get("/product/:id-:slug",'Default#article')
     ->with("id", "[0-9]+")
     ->with("slug", "([A-Za-z0-9]+)");
 
+$router->get("/panier/ajouter/:id",'Panier#addArticle')
+    ->with("id", "[0-9]+");
+$router->get("/panier/",'Panier#view');
+
 $router->run();
+
+var_dump($_SESSION);

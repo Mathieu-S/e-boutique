@@ -5,32 +5,53 @@ namespace Model;
 class User {
 
     private $id;
-    private $password;
-    private $email;
-    private $firstname;
-    private $lastname;
-    private $sex;
-    private $adressfirstline;
-    private $postalcode;
-    private $city;
-    private $country;
-    private $db;
+    private $pseudo;
+    private $nom;
+    private $prenom;
+    private $motDePasse;
+    private $adresse;
+    private $codePostal;
+    private $ville;
+    private $adresseMail;
 
-    public function __construct() {
+    public function __construct($pseudo, $nom, $prenom, $motDePasse, $adresse, $codePostal, $ville, $adresseMail)
+    {
+        $this->pseudo = $pseudo;
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->motDePasse = $motDePasse;
+        $this->adresse = $adresse;
+        $this->codePostal = $codePostal;
+        $this->ville = $ville;
+        $this->adresseMail = $adresseMail;
     }
 
     public static function login($username,$password) {
-        // Cette méthode teste l'existence de l'utilisateur en BdD à l'aide de l'objet PDO
-        // Si non trouvé, retourne zéro, sinon le pointeur sur l'enregistrement correspondant
-        //$db = new \PDO();
         $db = \Utils\Database::getInstance();
-        $query = $db->prepare("SELECT * FROM user WHERE email = :email AND pwd = :pwd");
+        $query = $db->prepare("SELECT * FROM clients WHERE adresseMail = :email");
         $query->execute([
-            'email' => $username,
-            'pwd' => $password
+            'email' => $username
         ]);
-        var_dump($query->fetch(\PDO::FETCH_ASSOC));
+        $user = $query->fetch(\PDO::FETCH_OBJ);
+        if (password_verify($password, $user->motDePasse)) {
+            return $user;
+        }
         return false;
     }
 
+    public function register() {
+        $db = \Utils\Database::getInstance();
+        $query = $db->prepare("INSERT INTO `clients`(`pseudo`,`nom`, `prenom`, `motDePasse`, `adresse`, `codePostal`, `ville`, `adresseMail`) VALUES (:pseudo,:nom,:prenom,:motDePasse,:adresse,:codePostal,:ville,:adresseMail)");
+        $query->execute([
+            'pseudo' => $this->pseudo,
+            'nom' => $this->nom,
+            'prenom' => $this->prenom,
+            'motDePasse' => password_hash($this->motDePasse, PASSWORD_DEFAULT),
+            'adresse' => $this->adresse,
+            'codePostal' => $this->codePostal,
+            'ville' => $this->ville,
+            'adresseMail' => $this->adresseMail,
+        ]);
+        return true;
+    }
 }

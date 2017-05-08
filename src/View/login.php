@@ -1,5 +1,5 @@
 <?php
-
+var_dump($_SESSION);
 ?>
 <section>
     <h1>Login</h1>
