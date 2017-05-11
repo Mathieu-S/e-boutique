@@ -14,7 +14,13 @@ class DefaultController extends Controller {
         $this->_set("articles", \Model\Article::getAllArticles());
         $this->_view("home");
     }
-    public  function article($id, $slug) {
+
+    public  function article($id) {
+        $this->_view("product");
+        var_dump($id);
+    }
+
+    public  function articleTest($id, $slug) {
         var_dump($id, $slug);
 
     }

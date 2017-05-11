@@ -5,7 +5,7 @@ function __autoload($class_name) {
         require_once ($file);
     }
 }
-define("URL", 'http://localhost/e-boutique/');
+define("URL", $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].str_replace('index.php', '', $_SERVER['PHP_SELF'] ));
 session_start();
 
 global $router;
@@ -24,10 +24,14 @@ $router->get("/product/:id-:slug",'Default#article')
     ->with("id", "[0-9]+")
     ->with("slug", "([A-Za-z0-9]+)");
 
+$router->get("/product/:id",'Default#article')
+    ->with("id", "[0-9]+");
+
 $router->get("/panier/ajouter/:id",'Panier#addArticle')
     ->with("id", "[0-9]+");
 $router->get("/panier/",'Panier#view');
 
 $router->run();
+echo $router->url('Default#home');
 
 var_dump($_SESSION);
