@@ -32,6 +32,5 @@ $router->get("/panier/ajouter/:id",'Panier#addArticle')
 $router->get("/panier/",'Panier#view');
 
 $router->run();
-echo $router->url('Default#home');
 
 var_dump($_SESSION);

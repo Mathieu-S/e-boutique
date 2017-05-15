@@ -5,37 +5,11 @@ include('templates/header.php');
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div id="myCarousel" class="carousel slide">
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-                    <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="item">
-                        <img class="img-responsive" src="images/iphone4s.jpg" alt="post image">
-                    </div>
-                    <div class="item active">
-                        <img class="img-responsive" src="images/iphone4s.jpg" alt="post image">
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive" src="images/iphone4s.jpg" alt="post image">
-                    </div>
-                </div>
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="icon-prev"></span></a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="icon-next"></span></a>
-            </div>
+            <img src="http://lorempixel.com/400/200" class="img-responsive" alt="Image article" style="width: 100%;">
             <hr>
             <ul id="myTab" class="nav nav-tabs">
                 <li class="active"><a href="#home" data-toggle="tab">INFO &amp; CARE</a></li>
                 <li class=""><a href="#profile" data-toggle="tab">DELIVERY</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">RETURN<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li class=""><a href="#dropdown1" data-toggle="tab">@fat</a></li>
-                        <li><a href="#dropdown2" data-toggle="tab">@mdo</a></li>
-                    </ul>
-                </li>
             </ul>
             <div id="myTabContent" class="tab-content" style="margin-bottom:20px;">
                 <div class="tab-pane fade active in" id="home">
@@ -58,52 +32,15 @@ include('templates/header.php');
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
-                    <h2>Product title</h2>
-                    <p>$20</p>
-                    <p class="lead text-danger"><strong>NOW $10</strong></p>
-                    <ul class="hidden-xs">
-                        <li>Product feature title</li>
-                        <li>Product feature title</li>
-                        <li>Product feature title</li>
-                        <li>Product feature title</li>
-                        <li>Product feature title</li>
-                    </ul>
-                    <p>
-                        Product short description. This project presents beautiful style graphic &amp; design. Bootstraptor provides modern features
-                    </p>
+                    <h2><?php echo $article->nomArticle; ?></h2>
+                    <p class="lead text-danger"><strong><?php echo $article->prixArticle; ?> €</strong></p>
+                    <p><?php echo $article->descriptionArticle; ?></p>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <select class="form-control" style="margin-bottom:10px;">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
-                                <option>Option 4</option>
-                                <option>Option  5</option>
-                            </select>
+                            <a class="btn btn-block btn-warning" href="<?= $router->url('Panier#addArticle', ['id' => $article->idArticle]); ?>" title="" style="margin-bottom:10px;">AJOUTER AU PANIER</a>
                         </div>
-
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="margin-bottom:10px;">
-                            <select class="form-control">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
-                                <option>Option 4</option>
-                                <option>Option 5</option>
-                            </select>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <a class="btn btn-block btn-warning" href="<?= $router->url('Panier#addArticle', ['id' => 17]); ?>" title="" style="margin-bottom:10px;">ADD TO BAG</a>
-                        </div>
-
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <a class="btn btn-block btn-default" href="#" title="" style="margin-bottom:10px;">SAVE FOR LATER</a>
-                        </div>
-                        <hr>
                     </div>
                 </div>
             </div>

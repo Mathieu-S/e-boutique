@@ -4,10 +4,13 @@ namespace Model;
 
 class Article {
 
-    private $id;
-    private $nom;
-    private $prix;
-
+    private $idArticle;
+    private $nomArticle;
+    private $imageArticle;
+    private $prixArticle;
+    private $descriptionArticle;
+    private $idCategorie;
+    private $type;
 
     public static function getAllArticles() {
         $db = \Utils\Database::getInstance();

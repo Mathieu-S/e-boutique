@@ -9,15 +9,15 @@ class DefaultController extends Controller {
         {
 
         }
-        $this->_set("name", $_SESSION['user']['pseudo']);
+//        $this->_set("name", $_SESSION['user']['pseudo']);
         $this->_set("test", ['name' => "Mathieu"]);
         $this->_set("articles", \Model\Article::getAllArticles());
         $this->_view("home");
     }
 
     public  function article($id) {
+        $this->_set("article", \Model\Article::getArticle($id));
         $this->_view("product");
-        var_dump($id);
     }
 
     public  function articleTest($id, $slug) {

@@ -183,40 +183,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.htm">YOURSITE.COM</a>
+            <a class="navbar-brand" href="<?= $router->url('Default#home'); ?>">YOURSITE.COM</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="index_category.htm">Category</a></li>
-                        <li><a href="product.htm">Product</a></li>
-                        <li><a href="cart.htm">Cart</a></li>
-                        <li><a href="checkout.htm">Checkout</a></li>
-                    </ul>
-                </li>
-            </ul>
             <ul class="nav navbar-nav navbar-right">
-                <a class="btn btn-success btn-sm navbar-btn" style="margin-left:10px;" href="#">Sign in</a>
-                <a class="btn btn-danger btn-sm navbar-btn" href="#">Sign up</a>
-                <div class="btn-group ">
-                    <button class="btn btn-info navbar-btn btn-sm">En</button>
-                    <button class="btn dropdown-toggle navbar-btn btn-info btn-sm" data-toggle="dropdown">
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" style="min-width:30px;">
-                        <!-- dropdown menu links -->
-                        <li><a href="">Ru</a></li>
-                        <li><a href="">Fr</a></li>
-                        <li><a href="">Es</a></li>
-
-                    </ul>
-                </div>
+                <a class="btn btn-success btn-sm navbar-btn" style="margin-left:10px;" href="#">Se connecter</a>
+                <a class="btn btn-danger btn-sm navbar-btn" href="#">S'enregistrer</a>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div>
@@ -262,48 +236,6 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 visible-lg text-center">
                 <h1 style="margin-top:0px !important;">SHOP.COM</h1>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="margin-bottom:10px;">
-
-                <form class="form-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control input-lg" placeholder="Search">
-                        <span class="input-group-btn">
-									<button type="submit" class="btn btn-primary btn-lg">Search</button>
-								</span>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-                <div class="panel panel-default text-center">
-                    <div class="panel-body">
-                        <a href="http://www.bootstraptor.com">MAN</a> / <a href="http://www.bootstraptor.com">WOMAN</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-                <div class="panel panel-default text-center">
-                    <div class="panel-body">
-                        <a href="http://www.bootstraptor.com">OFFER HERE</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3 hidden-xs hidden-sm">
-                <div class="panel panel-default text-center">
-                    <div class="panel-body">
-                        <a href="http://www.bootstraptor.com">OFFER HERE</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3 hidden-xs hidden-sm">
-                <div class="panel panel-default text-center">
-                    <div class="panel-body">
-                        <a href="http://www.bootstraptor.com">OFFER HERE</a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
