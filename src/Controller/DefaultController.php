@@ -16,7 +16,7 @@ class DefaultController extends Controller {
     }
 
     public  function article($id) {
-        $this->_set("article", \Model\Article::getArticle($id));
+        $this->_set("selectedArticle", \Model\Article::getArticle($id));
         $this->_view("product");
     }
 

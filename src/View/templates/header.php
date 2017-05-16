@@ -215,7 +215,7 @@
                                     <?php } ?>
                                 </a>
                                 <?php foreach (\Model\Panier::getArticles() as $article => $quantite) { ?>
-                                    <a href="#" class="list-group-item">
+                                    <a href="<?= $router->url('Default#article', ['id' => \Model\Article::getArticle($article)->idArticle]); ?>" class="list-group-item">
                                         <span class="badge"><?php echo \Model\Article::getArticle($article)->prixArticle * $quantite ?> €</span>
                                         <?php if ($quantite > 1) { ?>
                                             <?php echo \Model\Article::getArticle($article)->nomArticle .' X'.$quantite ?>

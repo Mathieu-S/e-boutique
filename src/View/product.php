@@ -32,14 +32,14 @@ include('templates/header.php');
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
-                    <h2><?php echo $article->nomArticle; ?></h2>
-                    <p class="lead text-danger"><strong><?php echo $article->prixArticle; ?> €</strong></p>
-                    <p><?php echo $article->descriptionArticle; ?></p>
+                    <h2><?php echo $selectedArticle->nomArticle ?></h2>
+                    <p class="lead text-danger"><strong><?php echo $selectedArticle->prixArticle ?> €</strong></p>
+                    <p><?php echo $selectedArticle->descriptionArticle ?></p>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                            <a class="btn btn-block btn-warning" href="<?= $router->url('Panier#addArticle', ['id' => $article->idArticle]); ?>" title="" style="margin-bottom:10px;">AJOUTER AU PANIER</a>
+                            <a class="btn btn-block btn-warning" href="<?= $router->url('Panier#addArticle', ['id' => $selectedArticle->idArticle]); ?>" title="" style="margin-bottom:10px;">AJOUTER AU PANIER</a>
                         </div>
                     </div>
                 </div>
