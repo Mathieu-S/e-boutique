@@ -1,12 +1,13 @@
 <?php
+session_start();
+define("URL", $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].str_replace('index.php', '', $_SERVER['PHP_SELF'] ));
+
 function __autoload($class_name) {
     $file = "src/".$class_name.".php";
     if(file_exists($file)) {
         require_once ($file);
     }
 }
-define("URL", $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].str_replace('index.php', '', $_SERVER['PHP_SELF'] ));
-session_start();
 
 global $router;
 $router = new Utils\Router($_GET['url']);
