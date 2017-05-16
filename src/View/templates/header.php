@@ -204,31 +204,29 @@
                 <ul class="nav nav-pills pull-right" style="width:100%;">
                     <li class="dropdown active" style="width:100%;">
                         <a class="dropdown-toggle text-center" data-toggle="dropdown" href="#" style="width:100%;">
-                            <i class="icon-shopping-cart"></i> Your Bag: $0.00 <i class="icon-caret-down"></i>
+                            <i class="icon-shopping-cart"></i> Your Bag: <?php echo \Controller\PanierController::prixTotalPanier() ?> €<i class="icon-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu list-group pull-right dropdown-cart">
                             <li>
                                 <a href="#" class="list-group-item active">
                                     <h4 class="list-group-item-heading"><i class="icon-shopping-cart"></i> CART HEADING</h4>
-                                    <p class="list-group-item-text">Your Bag is empty </p>
+                                    <?php if (!isset($_SESSION['panier'])) { ?>
+                                        <p class="list-group-item-text">Your Bag is empty </p>
+                                    <?php } ?>
                                 </a>
-                                <a href="#" class="list-group-item">
-                                    <span class="badge"><i class="icon-chevron-right"></i></span>
-                                    Product title here
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <span class="badge"><i class="icon-chevron-right"></i></span>
-                                    Product title here
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <span class="badge badge-danger">$14</span>
-                                    Product title here
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <span class="badge">$14</span>
-                                    Product title here Product
-                                </a>
-                                <a class="btn btn-success navbar-btn" style="margin:5px; color:#fff;">Proceed to checkout</a>
+                                <?php if (isset($_SESSION['panier'])) { ?>
+                                    <?php foreach ( $_SESSION['panier'] as $article => $quantite) { ?>
+                                        <a href="#" class="list-group-item">
+                                            <span class="badge"><?php echo \Model\Article::getArticle($article)->prixArticle * $quantite ?> €</span>
+                                            <?php if ($quantite > 1) { ?>
+                                                <?php echo \Model\Article::getArticle($article)->nomArticle .' X'.$quantite ?>
+                                            <?php } else { ?>
+                                                <?php echo \Model\Article::getArticle($article)->nomArticle ?>
+                                            <?php } ?>
+                                        </a>
+                                    <?php } ?>
+                                    <a class="btn btn-success navbar-btn" style="margin:5px; color:#fff;">Proceder à l'achat</a>
+                                <?php } ?>
                             </li>
                         </ul>
                     </li>

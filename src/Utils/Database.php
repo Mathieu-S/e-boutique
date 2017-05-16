@@ -12,7 +12,7 @@ class Database {
             $host = "localhost";
             $dbname = "e-boutique";
             $username = "root";
-            $password = "";
+            $password = "root";
 
             $dsn = "mysql:host=".$host.";dbname=".$dbname.";charset=utf8";
             self::$pdo = new \PDO($dsn, $username, $password);
