@@ -13,12 +13,9 @@ include('templates/header.php');
                 </div>
                 <div class="panel-body">
                     <ul id="cat-navi" class="nav nav-list">
-                        <li class="active"><a href="#">Active category</a></li>
-                        <li><a href="#">New in: Category</a></li>
-                        <li><a href="#">New in: Category</a></li>
-                        <li><a href="#">New in: Category</a></li>
-                        <li><a href="#">New in: Category</a></li>
-                        <li><a href="#">New in: Category</a></li>
+                        <?php foreach ($categories as $categorie) { ?>
+                            <li><a href="<?= $router->url('Default#homeCategories', ['id' => $categorie->idCategorie]); ?>"><?= $categorie->nomCategorie ?></a></li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

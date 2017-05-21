@@ -13,7 +13,8 @@ global $router;
 $router = new Utils\Router($_GET['url']);
 
 $router->get("/",'Default#home');
-$router->post("/",'Default#home');
+$router->get("/:id",'Default#homeCategories')
+    ->with("id", "[0-9]+");;
 
 $router->get("/login",'Login#login');
 $router->post("/login",'Login#login');
