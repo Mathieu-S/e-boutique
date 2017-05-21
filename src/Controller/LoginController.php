@@ -6,7 +6,7 @@ class LoginController extends Controller {
 
     public function login() {
         if (!empty($_POST)) {
-            $user = \Model\User::login($_POST['username'], $_POST['password']);
+            $user = \Model\User::login($_POST['adresseMail'], $_POST['password']);
             $_SESSION['user'] = $user;
             $this->_router->redirect('Default#home');
         } else {
@@ -29,6 +29,7 @@ class LoginController extends Controller {
             );
             if ($user->register()) {
                 $_SESSION['user'] = $user;
+                $this->_router->redirect('Default#home');
             }
         } else {
             $this->_view("register");

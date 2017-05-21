@@ -189,8 +189,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <a class="btn btn-success btn-sm navbar-btn" style="margin-left:10px;" href="#">Se connecter</a>
-                <a class="btn btn-danger btn-sm navbar-btn" href="#">S'enregistrer</a>
+                <?php if (!isset($_SESSION['user'])) { ?>
+                    <a class="btn btn-success btn-sm navbar-btn" style="margin-left:10px;" href="<?= $router->url('Login#login') ?>">Se connecter</a>
+                    <a class="btn btn-danger btn-sm navbar-btn" href="<?= $router->url('Login#register') ?>">S'enregistrer</a>
+                <?php } else { ?>
+                    <a class="btn btn-danger btn-sm navbar-btn" href="<?= $router->url('Login#logout') ?>">Se déconnecter</a>
+                <?php } ?>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div>
@@ -208,7 +212,7 @@
                         </a>
                         <ul class="dropdown-menu list-group pull-right dropdown-cart">
                             <li>
-                                <a href="#" class="list-group-item active">
+                                <a href="<?= $router->url('Panier#view') ?>" class="list-group-item active">
                                     <h4 class="list-group-item-heading"><i class="icon-shopping-cart"></i> CART HEADING</h4>
                                     <?php if (empty(\Model\Panier::getArticles())) { ?>
                                         <p class="list-group-item-text">Your Bag is empty </p>
@@ -224,7 +228,9 @@
                                         <?php } ?>
                                     </a>
                                 <?php } ?>
-                                <a class="btn btn-success navbar-btn" style="margin:5px; color:#fff;">Proceder à l'achat</a>
+                                <?php if (isset($_SESSION['panier'])) { ?>
+                                    <a href="<?= $router->url('Panier#payment') ?>" class="btn btn-success navbar-btn" style="margin:5px; color:#fff;">Procéder à l'achat</a>
+                                <?php } ?>
                             </li>
                         </ul>
                     </li>
