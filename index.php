@@ -42,5 +42,3 @@ $router->get("/payment/",'Panier#payment');
 $router->get("/commande/",'Commande#addCommande');
 
 $router->run();
-
-var_dump($_SESSION);
