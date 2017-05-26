@@ -5,7 +5,7 @@ include('templates/header.php');
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <img src="http://lorempixel.com/400/200" class="img-responsive" alt="Image article" style="width: 100%;">
+            <img src="../assets/images/<?= $selectedArticle->imageArticle ?>" class="img-responsive" alt="Image article" style="width: 100%;">
             <hr>
             <ul id="myTab" class="nav nav-tabs">
                 <li class="active"><a href="#home" data-toggle="tab">INFO &amp; CARE</a></li>

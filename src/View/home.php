@@ -34,12 +34,11 @@ include('templates/header.php');
                 <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <!-- IMAGE CONTAINER-->
-                        <img src="http://lorempixel.com/400/200" alt="post image">
+                        <img src="assets/images/<?= $article->imageArticle ?>" alt="post image">
                         <!--END IMAGE CONTAINER-->
                         <!-- CAPTION -->
                         <div class="caption">
                             <h3 class=""><a href="<?= $router->url('Default#article', ['id' => $article->idArticle]); ?>"><?php echo $article->nomArticle; ?></a></h3>
-                            <p class=""><?php echo $article->descriptionArticle; ?></p>
 
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
