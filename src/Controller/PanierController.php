@@ -10,7 +10,7 @@ Class PanierController extends Controller {
     }
 
     public function payment() {
-        if (!isset($_SESSION['user'])) {
+        if (!isset($_SESSION['user']) || $_SESSION['user'] === false) {
             $this->_router->redirect('Login#login');
         }
         $this->_view("payment");
