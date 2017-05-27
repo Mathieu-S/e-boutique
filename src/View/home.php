@@ -9,7 +9,7 @@ include('templates/header.php');
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4>Shop by Product</h4>
+                    <h4>Trier par catégories</h4>
                 </div>
                 <div class="panel-body">
                     <ul id="cat-navi" class="nav nav-list">

@@ -183,7 +183,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?= $router->url('Default#home'); ?>">YOURSITE.COM</a>
+            <a class="navbar-brand" href="<?= $router->url('Default#home'); ?>">NEED HARDWARE.COM</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -208,14 +208,14 @@
                 <ul class="nav nav-pills pull-right" style="width:100%;">
                     <li class="dropdown active" style="width:100%;">
                         <a class="dropdown-toggle text-center" data-toggle="dropdown" href="#" style="width:100%;">
-                            <i class="icon-shopping-cart"></i> Your Bag: <?php echo \Model\Panier::prixTotalPanier() ?> €<i class="icon-caret-down"></i>
+                            <i class="icon-shopping-cart"></i> Mon Panier: <?php echo \Model\Panier::prixTotalPanier() ?> €<i class="icon-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu list-group pull-right dropdown-cart">
                             <li>
                                 <a href="<?= $router->url('Panier#view') ?>" class="list-group-item active">
-                                    <h4 class="list-group-item-heading"><i class="icon-shopping-cart"></i> CART HEADING</h4>
+                                    <h4 class="list-group-item-heading"><i class="icon-shopping-cart"></i> CONTENU PANIER</h4>
                                     <?php if (empty(\Model\Panier::getArticles())) { ?>
-                                        <p class="list-group-item-text">Your Bag is empty </p>
+                                        <p class="list-group-item-text">Votre panier est vide ! </p>
                                     <?php } ?>
                                 </a>
                                 <?php foreach (\Model\Panier::getArticles() as $article => $quantite) { ?>
@@ -237,7 +237,7 @@
                 </ul>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 visible-lg text-center">
-                <h1 style="margin-top:0px !important;">SHOP.COM</h1>
+                <h1 style="margin-top:0px !important;">COMPOSANTS</h1>
             </div>
         </div>
     </div>
